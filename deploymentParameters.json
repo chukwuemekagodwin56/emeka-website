@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "webAppName": {
+      "value": "emeka-website"
+    },
+    "sku": {
+      "value": "B1"
+    },
+    "location": {
+      "value": "westeurope"
+    },
+    "linuxFxVersion": {
+      "value": "NODE|20-lts"
+    }
+  }
+}
