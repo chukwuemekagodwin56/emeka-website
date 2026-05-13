@@ -1,0 +1,16 @@
+First, get your App Service Plan name:
+az appservice plan list --resource-group emeka-rg --query "[].name" --output table
+It will return something like:
+emeka-website-plan
+Then create the new Web App pointing to that same plan:
+az webapp create --resource-group emeka-rg --plan emeka-website-plan --name fortune-smart-webapp --runtime "NODE|22-lts"
+Deploy your files to the new Web App:
+az webapp deploy --resource-group emeka-rg --name fortune-smart-static --src-path site.zip --type zip
+Result — two separate web apps, one shared plan:
+Same App Service Plan (emeka-website-plan)
+│
+├── emeka-website-txgekkysrjei4    →  production site
+│     https://emeka-website-txgekkysrjei4.azurewebsites.net
+│
+└── emeka-portfolio                →  second site
+      https://emeka-portfolio.azurewebsites.net
