@@ -1,0 +1,13 @@
+Step 1 — Create the slot
+az webapp deployment slot create --resource-group emeka-rg --name emeka-website-txgekkysrjei4 --slot staging
+This creates a separate slot at:
+https://emeka-website-txgekkysrjei4-staging.azurewebsites.net
+Step 2 — Deploy your files to the staging slot
+az webapp deploy --resource-group emeka-rg --name emeka-website-txgekkysrjei4 --slot staging --src-path site.zip --type zip
+Step 3 — Preview & test it
+https://emeka-website-txgekkysrjei4-staging.azurewebsites.net
+Step 4 — Swap staging into production (when ready)
+az webapp deployment slot swap --resource-group emeka-rg --name emeka-website-txgekkysrjei4 --slot staging --target-slot production
+How it all fits together
+production slot  →  https://emeka-website-txgekkysrjei4.azurewebsites.net  (live)
+staging slot     →  https://emeka-website-txgekkysrjei4-staging.azurewebsites.net  (test)
